@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+
+
+<div class="container">
+
+    <div class="p-3 mb-2 bg-light text-dark">
+        <h3>Creacion de Encuesta</h3>
+
+    </div>
+
+
+    <div class="form-group">
+        <label for="FormControlSelect1">Seleccione tipo de encuesta</label>
+        <select class="form-control" id="FormControlSelect1">
+          <option>Encuesta de Satisfaccion</option>
+          <option>Encuesta de Enfoque</option>
+          <option>Encuesta de Interés</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputAddress">Favor presionar el boton para ir agregando preguntas</label>
+        </div>
+
+    </div>
+    <div class="col-auto">
+        <button (click)="agregarPregunta()" class="btn btn-primary btn-sm">Agregar Pregunta</button>
+
+    </div>
+</div>
+<div class="row">
+    <hr>
+</div>
+<div class="container">
+    <div class="form-group">
+        <div formArrayName="preguntas" *ngFor="let pregunta of preguntas.controls; let pointIndex=index">
+            <div [formGroupName]="pointIndex">
+                <label class="col-md-1" [attr.for]=" 'pregunta' + pointIndex">  Pregunta</label>
+                <div class="form-group row col-md-12">
+                    <input type="text" [attr.id]="'pregunta' + pointIndex" class="form-control" formControlName="pregunta">
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-3" [attr.for]=" 'pregunta' + pointIndex">  Tipo de Pregunta</label>
+                    <div class="col-md-3">
+                        <select type="text" [attr.id]="'tipoPregunta' + pointIndex" class="form-control" formControlName="tipoPregunta">
+                            <option>Pregunta Abierta</option>
+                            <option>Calificacion</option>
+                            <option>Pregunta de Satisfaccion</option>   
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-danger" (click)="removerPregunta(pointIndex)">
+                            Remover
+                        </button>
+                    </div>
+                </div>
+                <input formControlName="pregunta" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <hr>
+    </div>
+
+    <app-footer></app-footer>
