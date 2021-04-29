@@ -26,8 +26,6 @@
                             "src/styles.css"
                         ],
                         "scripts": []
-                            /*,
-                                        /*"es5BrowserSupport": true*/
                     },
                     "configurations": {
                         "production": {
@@ -55,7 +53,9 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "loginApp:build"
+                        "browserTarget": "loginApp:build",
+                        "host": "198.199.87.77",
+                        "port": 1313
                     },
                     "configurations": {
                         "production": {
@@ -129,5 +129,8 @@
             }
         }
     },
-    "defaultProject": "loginApp"
+    "defaultProject": "loginApp",
+    "cli": {
+        "analytics": "db102e11-0d26-4062-81d1-cabed56544ee"
+    }
 }
